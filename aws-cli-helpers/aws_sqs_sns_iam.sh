@@ -24,7 +24,7 @@ while IFS=' ' read -r sns_topic_name sqs_queue_name iam_user_name iam_policy_nam
 do
     #more details for policy name
     iam_policy_name=iam_policy_name-$(date +%Y%m%d-%H%M%S)
-	iam_policy_filename=iam_policy.json
+    iam_policy_filename=iam_policy.json
 
     # Create SNS topic
     sns_topic_arn=$(aws sns create-topic --name $sns_topic_name --output text)
@@ -64,8 +64,8 @@ do
     iam_user_access_id=$(echo $iam_user_credentials | cut -d' ' -f2)
     iam_user_access_key=$(echo $iam_user_credentials | cut -d' ' -f1)
     
-	# Log in file some procedure details
-	echo ---------------------------------------------------------------------------
+    # Log in file some procedure details
+    echo ---------------------------------------------------------------------------
     echo ---------------------------------------------------------------------------
     echo ---------------------------------------------------------------------------
     echo IAM user "$iam_user_name" created with
@@ -78,7 +78,7 @@ do
     echo ---------------------------------------------------------------------------
 
     # Create iam user policy
-	# TDO: add source IP and the needed access
+    #TODO: add source IP and the needed access
     random_number_2=$RANDOM$RANDOM
     random_number_3=$RANDOM$RANDOM
     echo "{
